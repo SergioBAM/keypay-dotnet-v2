@@ -35,5 +35,6 @@ namespace KeyPayV2.Nz.Models.Manager
         public List<TimesheetShiftConditionModel> ShiftConditions { get; set; }
         public string HiddenComments { get; set; }
         public string SubmittedByUser { get; set; }
+        public List<ReportingDimensionValueBaseApiModel> DimensionValues { get; set; }
     }
 }

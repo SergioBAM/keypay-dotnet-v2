@@ -12,6 +12,7 @@ namespace KeyPayV2.Au.Enums
         PercentageStudentLoan,
         PercentageNet,
         Tiered,
-        Custom
+        Custom,
+        PercentageSuperannuation
     }
 }

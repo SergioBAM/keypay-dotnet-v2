@@ -33,6 +33,7 @@ namespace KeyPayV2.Sg.Models.Manager
         public bool PaidBreaksEnabled { get; set; }
         public IList<LocationPermissionModel> LocationPermissions { get; set; }
         public IList<EmployeeGroupPermissionModel> EmployeeGroupPermissions { get; set; }
+        public bool TimesheetDimensionsEnabled { get; set; }
         public int Id { get; set; }
         public string Name { get; set; }
         public string Region { get; set; }

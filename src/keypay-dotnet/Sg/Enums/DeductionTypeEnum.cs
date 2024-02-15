@@ -12,6 +12,7 @@ namespace KeyPayV2.Sg.Enums
         PercentageStudentLoan,
         PercentageNet,
         Tiered,
-        Custom
+        Custom,
+        PercentageSuperannuation
     }
 }

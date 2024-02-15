@@ -26,5 +26,6 @@ namespace KeyPayV2.Uk.Models.Common
         [JsonConverter(typeof(StringEnumConverter))]
         public BasicPayAdjustmentTypeEnum? BasicPayAdjustmentType { get; set; }
         public bool IsLinkedToOccupationalAbsence { get; set; }
+        public int? MaximumOffsetDays { get; set; }
     }
 }

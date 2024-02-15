@@ -783,6 +783,8 @@ namespace KeyPayV2.Sg.Functions
         /// </summary>
         /// <remarks>
         /// Edits the timesheet with the specified ID.
+        /// classificationId field left unspecified or null will not be changed.
+        /// To update classificationId field provide the new value, to specifically clear a value use "0".
         /// </remarks>
         public ManagerTimesheetLineModel EditTimesheet(int businessId, int employeeId, int timesheetId, ManagerTimesheetSubmitModel timesheet)
         {
@@ -794,6 +796,8 @@ namespace KeyPayV2.Sg.Functions
         /// </summary>
         /// <remarks>
         /// Edits the timesheet with the specified ID.
+        /// classificationId field left unspecified or null will not be changed.
+        /// To update classificationId field provide the new value, to specifically clear a value use "0".
         /// </remarks>
         public Task<ManagerTimesheetLineModel> EditTimesheetAsync(int businessId, int employeeId, int timesheetId, ManagerTimesheetSubmitModel timesheet, CancellationToken cancellationToken = default)
         {
@@ -870,7 +874,7 @@ namespace KeyPayV2.Sg.Functions
         /// Get timesheet reference data
         /// </summary>
         /// <remarks>
-        /// Gets the Work Types, Shift Conditions, Locations and Classifications for this Employee.
+        /// Gets the Work Types, Shift Conditions, Locations, and Reporting Dimension Values (if enabled) for this Employee.
         /// </remarks>
         public SgTimesheetReferenceData GetTimesheetReferenceData(int businessId, int employeeId)
         {
@@ -881,7 +885,7 @@ namespace KeyPayV2.Sg.Functions
         /// Get timesheet reference data
         /// </summary>
         /// <remarks>
-        /// Gets the Work Types, Shift Conditions, Locations and Classifications for this Employee.
+        /// Gets the Work Types, Shift Conditions, Locations, and Reporting Dimension Values (if enabled) for this Employee.
         /// </remarks>
         public Task<SgTimesheetReferenceData> GetTimesheetReferenceDataAsync(int businessId, int employeeId, CancellationToken cancellationToken = default)
         {

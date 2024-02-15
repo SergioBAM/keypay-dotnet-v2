@@ -79,6 +79,7 @@ namespace KeyPayV2.Uk.Enums
         UnusedLeavePaymentNormalTermination,
         BackPayment,
         UkOccupationalSickPay,
-        PaidFamilyAndDomesticViolenceLeave
+        PaidFamilyAndDomesticViolenceLeave,
+        UkOccupationalMaternityPay
     }
 }

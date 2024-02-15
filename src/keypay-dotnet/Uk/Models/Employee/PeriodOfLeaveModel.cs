@@ -20,6 +20,7 @@ namespace KeyPayV2.Uk.Models.Employee
         public LeaveCategoryTypeEnum? LeaveCategoryType { get; set; }
         public List<StatutoryLeaveLogEvent> Log { get; set; }
         public bool IsReadOnly { get; set; }
+        public bool CanDelete { get; set; }
         public bool IsLinkedToOccupationalAbsence { get; set; }
         public int? PayRunId { get; set; }
     }

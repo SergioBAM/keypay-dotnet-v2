@@ -80,6 +80,12 @@ namespace KeyPayV2.Nz.Enums
         InstaPay,
         Zepto,
         Slack,
-        Caxton
+        Caxton,
+        QuickbooksStandalonePayroll,
+        ImportEmployeeSelfSetup,
+        XeroIdentityPayrollSignUp,
+        XeroIdentityHrSignUp,
+        SageIntacct,
+        DailyPay
     }
 }

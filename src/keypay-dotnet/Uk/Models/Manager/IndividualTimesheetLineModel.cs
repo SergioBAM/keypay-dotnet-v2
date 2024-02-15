@@ -34,5 +34,6 @@ namespace KeyPayV2.Uk.Models.Manager
         public string HiddenComments { get; set; }
         public Attachment Attachment { get; set; }
         public bool LocationIsDeleted { get; set; }
+        public IList<Int32> DimensionValueIds { get; set; }
     }
 }

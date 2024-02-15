@@ -32,5 +32,6 @@ namespace KeyPayV2.Sg.Models.Manager
         [JsonConverter(typeof(StringEnumConverter))]
         public ExternalService? Source { get; set; }
         public bool LocationIsDeleted { get; set; }
+        public IList<Int32> DimensionValueIds { get; set; }
     }
 }

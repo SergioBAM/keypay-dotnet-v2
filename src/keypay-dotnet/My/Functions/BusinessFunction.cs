@@ -17,6 +17,8 @@ namespace KeyPayV2.My.Functions
     {
         List<MyBusinessExportModel> ListBusinesses(ODataQuery oDataQuery = null);
         Task<List<MyBusinessExportModel>> ListBusinessesAsync(ODataQuery oDataQuery = null, CancellationToken cancellationToken = default);
+        MyBusinessExportModel UpdateBusinessDetails(MyEditBusinessDetailsApiModel model);
+        Task<MyBusinessExportModel> UpdateBusinessDetailsAsync(MyEditBusinessDetailsApiModel model, CancellationToken cancellationToken = default);
         MyBusinessExportModel CreateNewBusiness(MyBusinessExportModel model);
         Task<MyBusinessExportModel> CreateNewBusinessAsync(MyBusinessExportModel model, CancellationToken cancellationToken = default);
         MyBusinessExportModel CreateNewBusiness(MyBusinessExportModel model, CreateNewBusinessQueryModel request);
@@ -118,6 +120,28 @@ namespace KeyPayV2.My.Functions
         public Task<List<MyBusinessExportModel>> ListBusinessesAsync(ODataQuery oDataQuery = null, CancellationToken cancellationToken = default)
         {
             return ApiRequestAsync<List<MyBusinessExportModel>>($"/business{ODataQuery.ToQueryString(oDataQuery, "?")}", Method.Get, cancellationToken);
+        }
+
+        /// <summary>
+        /// Update Business Details
+        /// </summary>
+        /// <remarks>
+        /// Update some standard business details
+        /// </remarks>
+        public MyBusinessExportModel UpdateBusinessDetails(MyEditBusinessDetailsApiModel model)
+        {
+            return ApiRequest<MyBusinessExportModel,MyEditBusinessDetailsApiModel>($"/business", model, Method.Put);
+        }
+
+        /// <summary>
+        /// Update Business Details
+        /// </summary>
+        /// <remarks>
+        /// Update some standard business details
+        /// </remarks>
+        public Task<MyBusinessExportModel> UpdateBusinessDetailsAsync(MyEditBusinessDetailsApiModel model, CancellationToken cancellationToken = default)
+        {
+            return ApiRequestAsync<MyBusinessExportModel,MyEditBusinessDetailsApiModel>($"/business", model, Method.Put, cancellationToken);
         }
 
         /// <summary>

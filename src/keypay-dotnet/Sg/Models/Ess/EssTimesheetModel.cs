@@ -62,5 +62,6 @@ namespace KeyPayV2.Sg.Models.Ess
         public string HiddenComments { get; set; }
         public bool ReadOnly { get; set; }
         public bool IgnoreRounding { get; set; }
+        public IList<Int32> DimensionValueIds { get; set; }
     }
 }

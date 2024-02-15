@@ -12,5 +12,6 @@ namespace KeyPayV2.Au.Models.Manager
         public List<AuEssWorkTypeModel> WorkTypes { get; set; }
         public List<AuEssWorkTypeModel> ShiftConditions { get; set; }
         public List<LocationModel> Locations { get; set; }
+        public IList<ReportingDimensionValueSelectModel> DimensionValues { get; set; }
     }
 }

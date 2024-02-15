@@ -15,5 +15,6 @@ namespace KeyPayV2.My.Models.EmployerLiabilityCategories
         public bool HideFromPaySlips { get; set; }
         public bool ShowTotalPayments { get; set; }
         public bool IncludeInShiftCosts { get; set; }
+        public bool IsSuperannuationFund { get; set; }
     }
 }

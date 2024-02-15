@@ -41,5 +41,6 @@ namespace KeyPayV2.Sg.Models.Ess
         public bool AllowToSelectHigherClassification { get; set; }
         public bool AllowEmployeeWorkEligibilitySelfService { get; set; }
         public bool PaidBreaksEnabled { get; set; }
+        public bool TimesheetDimensionsEnabled { get; set; }
     }
 }

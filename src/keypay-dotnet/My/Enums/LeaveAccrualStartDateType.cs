@@ -7,8 +7,6 @@ namespace KeyPayV2.My.Enums
     {
         EmployeeStartDate,
         SpecifiedDate,
-        CalendarYear,
-        RollingYear12Month,
-        RollingYear24Month
+        CalendarYear
     }
 }

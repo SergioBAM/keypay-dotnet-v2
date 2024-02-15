@@ -44,7 +44,7 @@ namespace KeyPayV2.Uk.Models.Employee
         public long P9CodingNoticeSequenceNumber { get; set; }
         public string Gender { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public bool IsApprentice { get; set; }
+        public bool? IsApprentice { get; set; }
         public bool? IsIR35Contractor { get; set; }
         public bool? IsSecondedEmployee { get; set; }
         [JsonConverter(typeof(StringEnumConverter))]
@@ -59,5 +59,11 @@ namespace KeyPayV2.Uk.Models.Employee
         public int EmployeeId { get; set; }
         public DateTime? FreeportQualifyingEndDate { get; set; }
         public DateTime? VeteransQualifyingEndDate { get; set; }
+        public string MdmId { get; set; }
+        public int? MdmVersion { get; set; }
+        public string MdmSchemaVersion { get; set; }
+        public bool TriggeredFromMdm { get; set; }
+        public bool SendToMdm { get; set; }
+        public IDictionary<String,String> IgnoreFields { get; set; }
     }
 }

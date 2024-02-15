@@ -24,6 +24,8 @@ namespace KeyPayV2.My.Models.Manager
         public bool CanApprove { get; set; }
         public DateTime? TerminationDate { get; set; }
         public DateTime? EmployeeStartDate { get; set; }
+        public IList<ReportingDimensionValueBaseApiModel> DimensionValues { get; set; }
+        public ClassificationSelection Classification { get; set; }
         public string EmployeeName { get; set; }
         public int Id { get; set; }
         public int EmployeeId { get; set; }

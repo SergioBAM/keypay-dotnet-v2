@@ -14,5 +14,8 @@ namespace KeyPayV2.Au.Models.Common
         public LocationSelectModel DefaultLocation { get; set; }
         public IList<ShiftConditionSelectModel> ShiftConditions { get; set; }
         public IList<LocationShiftConditionsModel> LocationShiftConditions { get; set; }
+        public bool ReportingDimensionsEnabled { get; set; }
+        public IList<NumericNullableSelectListItem> ReportingDimensionGroups { get; set; }
+        public IList<ReportingDimensionValueSelectModel> ReportingDimensionValues { get; set; }
     }
 }

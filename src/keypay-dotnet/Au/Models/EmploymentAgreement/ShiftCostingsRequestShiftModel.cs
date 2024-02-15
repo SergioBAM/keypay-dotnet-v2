@@ -40,5 +40,6 @@ namespace KeyPayV2.Au.Models.EmploymentAgreement
         public string HiddenComments { get; set; }
         public Attachment Attachment { get; set; }
         public string SubmittedByUser { get; set; }
+        public IList<Int32> DimensionValueIds { get; set; }
     }
 }

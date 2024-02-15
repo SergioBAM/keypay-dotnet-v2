@@ -10,9 +10,6 @@ namespace KeyPayV2.Uk.Models.ReportingDimensions
 {
     public class ReportingDimensionValueApiModel
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public int ReportingDimensionId { get; set; }
         [JsonConverter(typeof(StringEnumConverter))]
         public ExternalService Source { get; set; }
         public string ExternalId { get; set; }
@@ -20,5 +17,8 @@ namespace KeyPayV2.Uk.Models.ReportingDimensions
         public string SpecificEmployees { get; set; }
         public string FilterCombinationStrategy { get; set; }
         public IList<ReportingDimensionValueFilterApiModel> Filters { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int ReportingDimensionId { get; set; }
     }
 }

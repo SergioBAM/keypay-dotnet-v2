@@ -13,6 +13,9 @@ namespace KeyPayV2.My.Models.Business
         public bool ShowEmployeeId { get; set; }
         public bool ShowRateForAnnualEarnings { get; set; }
         public bool ShowEmployeeAddress { get; set; }
+        public bool? ShowYtdTotals { get; set; }
+        public bool? ShowUnitsWorked { get; set; }
+        public bool? ShowEmployeeStartEndDates { get; set; }
         public int Id { get; set; }
         public string EmailFrom { get; set; }
         public string EmailBodyMessage { get; set; }

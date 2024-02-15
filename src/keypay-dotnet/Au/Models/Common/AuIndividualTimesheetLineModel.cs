@@ -36,5 +36,6 @@ namespace KeyPayV2.Au.Models.Common
         public List<TimesheetShiftConditionModelv3> ShiftConditions { get; set; }
         public string HiddenComments { get; set; }
         public Attachment Attachment { get; set; }
+        public IList<Int32> DimensionValueIds { get; set; }
     }
 }

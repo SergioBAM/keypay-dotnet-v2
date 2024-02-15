@@ -15,6 +15,7 @@ namespace KeyPayV2.Uk.Enums
         StatutoryParentalBereavementLeave,
         OccupationalSickLeave,
         PaidFamilyandDomesticViolenceLeave,
-        EntitlementBasedLeave
+        EntitlementBasedLeave,
+        OccupationalMaternityLeave
     }
 }

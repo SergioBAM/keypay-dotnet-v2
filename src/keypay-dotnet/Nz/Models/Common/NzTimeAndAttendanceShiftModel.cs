@@ -23,5 +23,6 @@ namespace KeyPayV2.Nz.Models.Common
         public BasicKioskEmployeeModel Employee { get; set; }
         public IList<TimeAndAttendanceBreakModel> Breaks { get; set; }
         public IList<ShiftConditionModel> ShiftConditions { get; set; }
+        public List<ReportingDimensionValueBaseApiModel> DimensionValues { get; set; }
     }
 }

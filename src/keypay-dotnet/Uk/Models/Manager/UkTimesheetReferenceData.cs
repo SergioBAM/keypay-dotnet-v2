@@ -11,5 +11,6 @@ namespace KeyPayV2.Uk.Models.Manager
         public List<UkEssWorkTypeModel> WorkTypes { get; set; }
         public List<UkEssWorkTypeModel> ShiftConditions { get; set; }
         public List<LocationModel> Locations { get; set; }
+        public IList<ReportingDimensionValueSelectModel> DimensionValues { get; set; }
     }
 }

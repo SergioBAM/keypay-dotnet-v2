@@ -40,5 +40,6 @@ namespace KeyPayV2.Uk.Models.Employee
         public SspCalculationStatusEnum? CalculationStatus { get; set; }
         public bool ShowSsp1Warning { get; set; }
         public bool IsReadOnly { get; set; }
+        public decimal? MaximumOffsetDays { get; set; }
     }
 }

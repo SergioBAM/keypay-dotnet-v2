@@ -21,6 +21,9 @@ namespace KeyPayV2.My.Models.Business
         [JsonConverter(typeof(StringEnumConverter))]
         public LeaveAnniversarySetting? LeaveAnniversarySetting { get; set; }
         public DateTime? LeaveAnniversarySettingDate { get; set; }
+        public int StandardDaysPerWeek { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
+        public FormulaForCalculatingOrdinaryRateOfPayEnum FormulaForCalculatingOrdinaryRateOfPay { get; set; }
         public int Id { get; set; }
         public string Name { get; set; }
         public string Region { get; set; }

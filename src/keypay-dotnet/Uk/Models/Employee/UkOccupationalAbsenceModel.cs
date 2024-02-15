@@ -25,7 +25,6 @@ namespace KeyPayV2.Uk.Models.Employee
         public decimal SickDays { get; set; }
         public bool OverrideAmount { get; set; }
         public decimal? AmountOverride { get; set; }
-        public int? ServiceBandId { get; set; }
         public int? ReportingTagId { get; set; }
         public string ReportingTagName { get; set; }
         public string Notes { get; set; }
@@ -34,6 +33,7 @@ namespace KeyPayV2.Uk.Models.Employee
         public StatutoryPaymentStatus Status { get; set; }
         public string StatusDescription { get; set; }
         public bool OverrideServiceBand { get; set; }
+        public int? OverriddenServiceBandId { get; set; }
         public bool MaximumEntitlementReached { get; set; }
         public bool EntitlementFullyExhausted { get; set; }
     }

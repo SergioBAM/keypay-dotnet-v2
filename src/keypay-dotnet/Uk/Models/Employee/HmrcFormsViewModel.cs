@@ -20,5 +20,6 @@ namespace KeyPayV2.Uk.Models.Employee
         public P11dFormsUrls Urls { get; set; }
         public NationalInsuranceBackCalculationViewModel NationalInsuranceBackCalculation { get; set; }
         public bool HasNationalInsuranceBackCalculation { get; set; }
+        public List<HmrcNoticeModel> HmrcNotices { get; set; }
     }
 }

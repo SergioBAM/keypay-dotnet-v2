@@ -7,6 +7,7 @@ namespace KeyPayV2.My.Enums
     {
         Fixed,
         PercentageGross,
-        PercentageOTE
+        PercentageOTE,
+        PercentageSuperannuation
     }
 }

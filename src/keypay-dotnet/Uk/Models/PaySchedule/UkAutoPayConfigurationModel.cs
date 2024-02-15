@@ -10,6 +10,10 @@ namespace KeyPayV2.Uk.Models.PaySchedule
 {
     public class UkAutoPayConfigurationModel
     {
+        public bool? PayOnSpecificDayOfMonth { get; set; }
+        public int? SpecificPayDayOfMonth { get; set; }
+        public int? PayWeekOfMonth { get; set; }
+        public int? PayDayOfWeek { get; set; }
         public bool Enabled { get; set; }
         public bool Paused { get; set; }
         public DateTime InitialPayPeriodEnding { get; set; }

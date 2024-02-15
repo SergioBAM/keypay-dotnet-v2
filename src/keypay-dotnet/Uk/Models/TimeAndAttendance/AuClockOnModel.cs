@@ -15,6 +15,7 @@ namespace KeyPayV2.Uk.Models.TimeAndAttendance
         public int? WorkTypeId { get; set; }
         public IList<Int32> ShiftConditionIds { get; set; }
         public string Note { get; set; }
+        public IList<Int32> DimensionValueIds { get; set; }
         public int? EmployeeId { get; set; }
         public decimal? Latitude { get; set; }
         public decimal? Longitude { get; set; }

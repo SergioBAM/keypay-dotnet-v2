@@ -11,5 +11,6 @@ namespace KeyPayV2.Sg.Models.Manager
         public List<SgEssWorkTypeModel> WorkTypes { get; set; }
         public List<SgEssWorkTypeModel> ShiftConditions { get; set; }
         public List<LocationModel> Locations { get; set; }
+        public IList<ReportingDimensionValueSelectModel> DimensionValues { get; set; }
     }
 }

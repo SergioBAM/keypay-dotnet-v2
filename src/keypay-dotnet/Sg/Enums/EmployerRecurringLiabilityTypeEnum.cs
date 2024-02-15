@@ -7,6 +7,7 @@ namespace KeyPayV2.Sg.Enums
     {
         Fixed,
         PercentageGross,
-        PercentageOTE
+        PercentageOTE,
+        PercentageSuperannuation
     }
 }
