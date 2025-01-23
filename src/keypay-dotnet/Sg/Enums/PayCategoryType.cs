@@ -80,6 +80,9 @@ namespace KeyPayV2.Sg.Enums
         BackPayment,
         UkOccupationalSickPay,
         PaidFamilyAndDomesticViolenceLeave,
-        UkOccupationalMaternityPay
+        UkOccupationalMaternityPay,
+        RolledUpHolidayPay,
+        ShppInTouchPay,
+        AlternativeHolidaysCashOut
     }
 }

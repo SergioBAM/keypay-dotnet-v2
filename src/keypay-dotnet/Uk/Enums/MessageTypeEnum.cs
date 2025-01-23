@@ -111,6 +111,7 @@ namespace KeyPayV2.Uk.Enums
         ResendPaymentAndDeductionStatement,
         EmployeeSelfSetupReminder,
         EmployeeOnboardingP45Uploaded,
+        BusinessAccessGranted,
         InitiateEmployeeOnboardingWithContract,
         SignatoryContract,
         WorkEligibilityExpiringNotification,
@@ -120,9 +121,20 @@ namespace KeyPayV2.Uk.Enums
         InitiateEmployeeOnboardingWithLogin,
         AuthorisingSignatoryNotification,
         IntegrationCustomFeatureRequest,
+        UserAccountLockedByAdmin,
+        UserAccountUnlockedByAdmin,
         EmailAddressChanged,
         EmailAddressConfirmChanged,
         RecoveryEmailAddressChanged,
-        RecoveryEmailAddressConfirmChanged
+        RecoveryEmailAddressConfirmChanged,
+        FraudProtectionCheckResult,
+        SuspiciousLogin,
+        ImpossibleTravelLogin,
+        PaymentApprovalNotification,
+        PaymentApprovalReminder,
+        PaymentApprovalStatusChanged,
+        BulkActionUserPasswordChanged,
+        BulkActionUserAccountLocked,
+        BulkActionUserAccountUnlocked
     }
 }

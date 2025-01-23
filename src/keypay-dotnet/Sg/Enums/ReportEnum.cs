@@ -99,6 +99,12 @@ namespace KeyPayV2.Sg.Enums
         P45Report,
         CpfOwAndAwReconciliationReport,
         PayRunFpsReport,
-        PortableLongServiceLeaveReport
+        PortableLongServiceLeaveReport,
+        UkTaxAndNiBandwidthsReport,
+        CustomisablePayrollReport,
+        SuperannuationStaplingDetailsReport,
+        HmrcInboxReport,
+        HrdfMonthlyContributionsReport,
+        CasualConversionReport
     }
 }

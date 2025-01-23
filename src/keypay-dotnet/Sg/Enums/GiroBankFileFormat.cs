@@ -9,8 +9,10 @@ namespace KeyPayV2.Sg.Enums
         DBS,
         UOB,
         OCBC,
+        StandardChartered,
         Citibank,
         HSBC,
-        BNPParibas
+        BNPParibas,
+        Mizuho
     }
 }

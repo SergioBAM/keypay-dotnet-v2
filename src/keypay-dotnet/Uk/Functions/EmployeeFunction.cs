@@ -109,6 +109,20 @@ namespace KeyPayV2.Uk.Functions
         Task UnattachEmployeeDocumentFromStatutoryAdoptionLeaveAsync(int businessId, int employeeId, int id, int documentId, CancellationToken cancellationToken = default);
         UkSapCalcApiModel CalculateStatutoryAdoptionLeavePeriodData(int businessId, int employeeId, CalculateStatutoryAdoptionLeavePeriodDataQueryModel request);
         Task<UkSapCalcApiModel> CalculateStatutoryAdoptionLeavePeriodDataAsync(int businessId, int employeeId, CalculateStatutoryAdoptionLeavePeriodDataQueryModel request, CancellationToken cancellationToken = default);
+        UkShppDataApiModel GetStatutorySharedParentalLeavePeriodData(int businessId, int employeeId, GetStatutorySharedParentalLeavePeriodDataQueryModel request);
+        Task<UkShppDataApiModel> GetStatutorySharedParentalLeavePeriodDataAsync(int businessId, int employeeId, GetStatutorySharedParentalLeavePeriodDataQueryModel request, CancellationToken cancellationToken = default);
+        UkSmpDataApiResponseModel CreateStatutorySharedParentalLeavePeriodData(int businessId, int employeeId, UkShppDataApiModel shpp);
+        Task<UkSmpDataApiResponseModel> CreateStatutorySharedParentalLeavePeriodDataAsync(int businessId, int employeeId, UkShppDataApiModel shpp, CancellationToken cancellationToken = default);
+        UkShppDataApiModel GetStatutorySharedParentalLeavePeriodDataById(int businessId, int employeeId, int id);
+        Task<UkShppDataApiModel> GetStatutorySharedParentalLeavePeriodDataByIdAsync(int businessId, int employeeId, int id, CancellationToken cancellationToken = default);
+        List<EmployeeDocumentModel> GetStatutorySharedParentalLeaveAttachments(int businessId, int employeeId, int id);
+        Task<List<EmployeeDocumentModel>> GetStatutorySharedParentalLeaveAttachmentsAsync(int businessId, int employeeId, int id, CancellationToken cancellationToken = default);
+        EmployeeDocumentModel AttachEmployeeDocumentToStatutorySharedParentalLeave(int businessId, int employeeId, int id, int documentId);
+        Task<EmployeeDocumentModel> AttachEmployeeDocumentToStatutorySharedParentalLeaveAsync(int businessId, int employeeId, int id, int documentId, CancellationToken cancellationToken = default);
+        void UnattachEmployeeDocumentFromStatutorySharedParentalLeave(int businessId, int employeeId, int id, int documentId);
+        Task UnattachEmployeeDocumentFromStatutorySharedParentalLeaveAsync(int businessId, int employeeId, int id, int documentId, CancellationToken cancellationToken = default);
+        UkSmpCalcApiModel CalculateStatutorySharedParentalLeavePeriodData(int businessId, int employeeId, CalculateStatutorySharedParentalLeavePeriodDataQueryModel request);
+        Task<UkSmpCalcApiModel> CalculateStatutorySharedParentalLeavePeriodDataAsync(int businessId, int employeeId, CalculateStatutorySharedParentalLeavePeriodDataQueryModel request, CancellationToken cancellationToken = default);
         UkSmpDataApiModel GetStatutoryMaternityLeavePeriodData(int businessId, int employeeId, GetStatutoryMaternityLeavePeriodDataQueryModel request);
         Task<UkSmpDataApiModel> GetStatutoryMaternityLeavePeriodDataAsync(int businessId, int employeeId, GetStatutoryMaternityLeavePeriodDataQueryModel request, CancellationToken cancellationToken = default);
         UkSmpDataApiResponseModel CreateStatutoryMaternityLeavePeriodData(int businessId, int employeeId, UkSmpDataApiModel smp);
@@ -159,6 +173,10 @@ namespace KeyPayV2.Uk.Functions
         Task<UkSspApiModel> CreateStatutorySickPayAsync(int businessId, int employeeId, UkSspApiModel ssp, CancellationToken cancellationToken = default);
         UkSspApiModel GetStatutorySickPayById(int businessId, int employeeId, int periodOfLeaveId);
         Task<UkSspApiModel> GetStatutorySickPayByIdAsync(int businessId, int employeeId, int periodOfLeaveId, CancellationToken cancellationToken = default);
+        PeriodOfLeaveModel UpdateStatutorySickPay(int businessId, int employeeId, int periodOfLeaveId, UkSspUpdateModel model);
+        Task<PeriodOfLeaveModel> UpdateStatutorySickPayAsync(int businessId, int employeeId, int periodOfLeaveId, UkSspUpdateModel model, CancellationToken cancellationToken = default);
+        void DeletePeriodOfLeave(int businessId, int employeeId, int periodOfLeaveId);
+        Task DeletePeriodOfLeaveAsync(int businessId, int employeeId, int periodOfLeaveId, CancellationToken cancellationToken = default);
         void SyncEmployeeToQbo(int businessId, int employeeId);
         Task SyncEmployeeToQboAsync(int businessId, int employeeId, CancellationToken cancellationToken = default);
         List<UkWorkTypeModel> GetEmployeeWorkTypes(int businessId, int employeeId, ODataQuery oDataQuery = null);
@@ -1069,6 +1087,142 @@ namespace KeyPayV2.Uk.Functions
         }
 
         /// <summary>
+        /// Get Statutory Shared Parental Leave Period Data
+        /// </summary>
+        /// <remarks>
+        /// Gets the Statutory Shared Parental Leave period data for a specific employee
+        /// </remarks>
+        public UkShppDataApiModel GetStatutorySharedParentalLeavePeriodData(int businessId, int employeeId, GetStatutorySharedParentalLeavePeriodDataQueryModel request)
+        {
+            return ApiRequest<UkShppDataApiModel>($"/business/{businessId}/employee/{employeeId}/statutoryleave/shpp?periodStart={request.PeriodStart.ToString("yyyy-MM-ddTHH:mm:ss")}", Method.Get);
+        }
+
+        /// <summary>
+        /// Get Statutory Shared Parental Leave Period Data
+        /// </summary>
+        /// <remarks>
+        /// Gets the Statutory Shared Parental Leave period data for a specific employee
+        /// </remarks>
+        public Task<UkShppDataApiModel> GetStatutorySharedParentalLeavePeriodDataAsync(int businessId, int employeeId, GetStatutorySharedParentalLeavePeriodDataQueryModel request, CancellationToken cancellationToken = default)
+        {
+            return ApiRequestAsync<UkShppDataApiModel>($"/business/{businessId}/employee/{employeeId}/statutoryleave/shpp?periodStart={request.PeriodStart.ToString("yyyy-MM-ddTHH:mm:ss")}", Method.Get, cancellationToken);
+        }
+
+        /// <summary>
+        /// Create Statutory Shared Parental Leave Period data
+        /// </summary>
+        /// <remarks>
+        /// Creates a Statutory Shared Parental Leave period for an employee
+        /// </remarks>
+        public UkSmpDataApiResponseModel CreateStatutorySharedParentalLeavePeriodData(int businessId, int employeeId, UkShppDataApiModel shpp)
+        {
+            return ApiRequest<UkSmpDataApiResponseModel,UkShppDataApiModel>($"/business/{businessId}/employee/{employeeId}/statutoryleave/shpp", shpp, Method.Post);
+        }
+
+        /// <summary>
+        /// Create Statutory Shared Parental Leave Period data
+        /// </summary>
+        /// <remarks>
+        /// Creates a Statutory Shared Parental Leave period for an employee
+        /// </remarks>
+        public Task<UkSmpDataApiResponseModel> CreateStatutorySharedParentalLeavePeriodDataAsync(int businessId, int employeeId, UkShppDataApiModel shpp, CancellationToken cancellationToken = default)
+        {
+            return ApiRequestAsync<UkSmpDataApiResponseModel,UkShppDataApiModel>($"/business/{businessId}/employee/{employeeId}/statutoryleave/shpp", shpp, Method.Post, cancellationToken);
+        }
+
+        /// <summary>
+        /// Get Statutory Shared Parental Leave Period Data By Id
+        /// </summary>
+        /// <remarks>
+        /// Gets the Statutory Shared Parental Leave period data for a specific employee
+        /// </remarks>
+        public UkShppDataApiModel GetStatutorySharedParentalLeavePeriodDataById(int businessId, int employeeId, int id)
+        {
+            return ApiRequest<UkShppDataApiModel>($"/business/{businessId}/employee/{employeeId}/statutoryleave/shpp/{id}", Method.Get);
+        }
+
+        /// <summary>
+        /// Get Statutory Shared Parental Leave Period Data By Id
+        /// </summary>
+        /// <remarks>
+        /// Gets the Statutory Shared Parental Leave period data for a specific employee
+        /// </remarks>
+        public Task<UkShppDataApiModel> GetStatutorySharedParentalLeavePeriodDataByIdAsync(int businessId, int employeeId, int id, CancellationToken cancellationToken = default)
+        {
+            return ApiRequestAsync<UkShppDataApiModel>($"/business/{businessId}/employee/{employeeId}/statutoryleave/shpp/{id}", Method.Get, cancellationToken);
+        }
+
+        /// <summary>
+        /// Get Statutory Shared Parental Leave Attachments
+        /// </summary>
+        public List<EmployeeDocumentModel> GetStatutorySharedParentalLeaveAttachments(int businessId, int employeeId, int id)
+        {
+            return ApiRequest<List<EmployeeDocumentModel>>($"/business/{businessId}/employee/{employeeId}/statutoryleave/shpp/{id}/attachments", Method.Get);
+        }
+
+        /// <summary>
+        /// Get Statutory Shared Parental Leave Attachments
+        /// </summary>
+        public Task<List<EmployeeDocumentModel>> GetStatutorySharedParentalLeaveAttachmentsAsync(int businessId, int employeeId, int id, CancellationToken cancellationToken = default)
+        {
+            return ApiRequestAsync<List<EmployeeDocumentModel>>($"/business/{businessId}/employee/{employeeId}/statutoryleave/shpp/{id}/attachments", Method.Get, cancellationToken);
+        }
+
+        /// <summary>
+        /// Attach Employee Document to Statutory Shared Parental Leave
+        /// </summary>
+        public EmployeeDocumentModel AttachEmployeeDocumentToStatutorySharedParentalLeave(int businessId, int employeeId, int id, int documentId)
+        {
+            return ApiRequest<EmployeeDocumentModel>($"/business/{businessId}/employee/{employeeId}/statutoryleave/shpp/{id}/employeedocument/{documentId}", Method.Put);
+        }
+
+        /// <summary>
+        /// Attach Employee Document to Statutory Shared Parental Leave
+        /// </summary>
+        public Task<EmployeeDocumentModel> AttachEmployeeDocumentToStatutorySharedParentalLeaveAsync(int businessId, int employeeId, int id, int documentId, CancellationToken cancellationToken = default)
+        {
+            return ApiRequestAsync<EmployeeDocumentModel>($"/business/{businessId}/employee/{employeeId}/statutoryleave/shpp/{id}/employeedocument/{documentId}", Method.Put, cancellationToken);
+        }
+
+        /// <summary>
+        /// Unattach Employee Document from Statutory Shared Parental Leave
+        /// </summary>
+        public void UnattachEmployeeDocumentFromStatutorySharedParentalLeave(int businessId, int employeeId, int id, int documentId)
+        {
+            ApiRequest($"/business/{businessId}/employee/{employeeId}/statutoryleave/shpp/{id}/employeedocument/{documentId}", Method.Delete);
+        }
+
+        /// <summary>
+        /// Unattach Employee Document from Statutory Shared Parental Leave
+        /// </summary>
+        public Task UnattachEmployeeDocumentFromStatutorySharedParentalLeaveAsync(int businessId, int employeeId, int id, int documentId, CancellationToken cancellationToken = default)
+        {
+            return ApiRequestAsync($"/business/{businessId}/employee/{employeeId}/statutoryleave/shpp/{id}/employeedocument/{documentId}", Method.Delete, cancellationToken);
+        }
+
+        /// <summary>
+        /// Calculate Statutory Shared Parental Leave Period Data
+        /// </summary>
+        /// <remarks>
+        /// Gets the Statutory Shared Parental Leave period data for a specific employee including information about payments already made and pending
+        /// </remarks>
+        public UkSmpCalcApiModel CalculateStatutorySharedParentalLeavePeriodData(int businessId, int employeeId, CalculateStatutorySharedParentalLeavePeriodDataQueryModel request)
+        {
+            return ApiRequest<UkSmpCalcApiModel>($"/business/{businessId}/employee/{employeeId}/statutoryleave/shppcalc?periodStart={request.PeriodStart.ToString("yyyy-MM-ddTHH:mm:ss")}", Method.Get);
+        }
+
+        /// <summary>
+        /// Calculate Statutory Shared Parental Leave Period Data
+        /// </summary>
+        /// <remarks>
+        /// Gets the Statutory Shared Parental Leave period data for a specific employee including information about payments already made and pending
+        /// </remarks>
+        public Task<UkSmpCalcApiModel> CalculateStatutorySharedParentalLeavePeriodDataAsync(int businessId, int employeeId, CalculateStatutorySharedParentalLeavePeriodDataQueryModel request, CancellationToken cancellationToken = default)
+        {
+            return ApiRequestAsync<UkSmpCalcApiModel>($"/business/{businessId}/employee/{employeeId}/statutoryleave/shppcalc?periodStart={request.PeriodStart.ToString("yyyy-MM-ddTHH:mm:ss")}", Method.Get, cancellationToken);
+        }
+
+        /// <summary>
         /// Get Statutory Maternity Leave Period Data
         /// </summary>
         /// <remarks>
@@ -1559,6 +1713,38 @@ namespace KeyPayV2.Uk.Functions
         }
 
         /// <summary>
+        /// Update Statutory Sick Pay
+        /// </summary>
+        public PeriodOfLeaveModel UpdateStatutorySickPay(int businessId, int employeeId, int periodOfLeaveId, UkSspUpdateModel model)
+        {
+            return ApiRequest<PeriodOfLeaveModel,UkSspUpdateModel>($"/business/{businessId}/employee/{employeeId}/statutoryleave/ssp/{periodOfLeaveId}", model, Method.Put);
+        }
+
+        /// <summary>
+        /// Update Statutory Sick Pay
+        /// </summary>
+        public Task<PeriodOfLeaveModel> UpdateStatutorySickPayAsync(int businessId, int employeeId, int periodOfLeaveId, UkSspUpdateModel model, CancellationToken cancellationToken = default)
+        {
+            return ApiRequestAsync<PeriodOfLeaveModel,UkSspUpdateModel>($"/business/{businessId}/employee/{employeeId}/statutoryleave/ssp/{periodOfLeaveId}", model, Method.Put, cancellationToken);
+        }
+
+        /// <summary>
+        /// Delete Period of Leave
+        /// </summary>
+        public void DeletePeriodOfLeave(int businessId, int employeeId, int periodOfLeaveId)
+        {
+            ApiRequest($"/business/{businessId}/employee/{employeeId}/statutoryleave/ssp/{periodOfLeaveId}", Method.Delete);
+        }
+
+        /// <summary>
+        /// Delete Period of Leave
+        /// </summary>
+        public Task DeletePeriodOfLeaveAsync(int businessId, int employeeId, int periodOfLeaveId, CancellationToken cancellationToken = default)
+        {
+            return ApiRequestAsync($"/business/{businessId}/employee/{employeeId}/statutoryleave/ssp/{periodOfLeaveId}", Method.Delete, cancellationToken);
+        }
+
+        /// <summary>
         /// Sync Employee to QBO
         /// </summary>
         /// <remarks>
@@ -1794,6 +1980,14 @@ namespace KeyPayV2.Uk.Functions
         /// <p>
         ///             If reporting dimensions are enabled for the business, add primary reporting dimension values using "|" as a separator between values.
         ///             </p>
+        /// <p>Bypassing address validation:</p>
+        /// <p>By default we validate addresses when they are entered. If for any reason you want to skip this validation, please follow the steps below.</p>
+        /// <ol>
+        ///   <li>Set "ResidentialAddressIsOverseas" and "PostalAddressIsOverseas" to "true" (this needs to be a boolean in a string).</li>
+        ///   <li>Set "ResidentialCountry" and "PostalCountry" to the country of the address (e.g. United Kingdom)</li>
+        ///   <li>Now you can enter your address unrestricted in the normal fields.</li>
+        /// </ol>
+        /// <p>Please note that when ResidentialAddressIsOverseas is set to "true", ResidentialCountry <b>must</b> be set and likewise with PostalAddressIsOverseas and PostalCountry.</p>
         /// </remarks>
         public EmployeeUpdateResponseModel CreateOrUpdateEmployee(int businessId, UkUnstructuredEmployeeModel model)
         {
@@ -1822,6 +2016,14 @@ namespace KeyPayV2.Uk.Functions
         /// <p>
         ///             If reporting dimensions are enabled for the business, add primary reporting dimension values using "|" as a separator between values.
         ///             </p>
+        /// <p>Bypassing address validation:</p>
+        /// <p>By default we validate addresses when they are entered. If for any reason you want to skip this validation, please follow the steps below.</p>
+        /// <ol>
+        ///   <li>Set "ResidentialAddressIsOverseas" and "PostalAddressIsOverseas" to "true" (this needs to be a boolean in a string).</li>
+        ///   <li>Set "ResidentialCountry" and "PostalCountry" to the country of the address (e.g. United Kingdom)</li>
+        ///   <li>Now you can enter your address unrestricted in the normal fields.</li>
+        /// </ol>
+        /// <p>Please note that when ResidentialAddressIsOverseas is set to "true", ResidentialCountry <b>must</b> be set and likewise with PostalAddressIsOverseas and PostalCountry.</p>
         /// </remarks>
         public Task<EmployeeUpdateResponseModel> CreateOrUpdateEmployeeAsync(int businessId, UkUnstructuredEmployeeModel model, CancellationToken cancellationToken = default)
         {
@@ -1850,6 +2052,14 @@ namespace KeyPayV2.Uk.Functions
         /// <p>
         ///             If reporting dimensions are enabled for the business, add primary reporting dimension values using "|" as a separator between values.
         ///             </p>
+        /// <p>Bypassing address validation:</p>
+        /// <p>By default we validate addresses when they are entered. If for any reason you want to skip this validation, please follow the steps below.</p>
+        /// <ol>
+        ///   <li>Set "ResidentialAddressIsOverseas" and "PostalAddressIsOverseas" to "true" (this needs to be a boolean in a string).</li>
+        ///   <li>Set "ResidentialCountry" and "PostalCountry" to the country of the address (e.g. United Kingdom)</li>
+        ///   <li>Now you can enter your address unrestricted in the normal fields.</li>
+        /// </ol>
+        /// <p>Please note that when ResidentialAddressIsOverseas is set to "true", ResidentialCountry <b>must</b> be set and likewise with PostalAddressIsOverseas and PostalCountry.</p>
         /// </remarks>
         public EmployeeUpdateResponseModel CreateOrUpdateEmployee(int businessId, UkUnstructuredEmployeeModel model, CreateOrUpdateEmployeeQueryModel request)
         {
@@ -1878,6 +2088,14 @@ namespace KeyPayV2.Uk.Functions
         /// <p>
         ///             If reporting dimensions are enabled for the business, add primary reporting dimension values using "|" as a separator between values.
         ///             </p>
+        /// <p>Bypassing address validation:</p>
+        /// <p>By default we validate addresses when they are entered. If for any reason you want to skip this validation, please follow the steps below.</p>
+        /// <ol>
+        ///   <li>Set "ResidentialAddressIsOverseas" and "PostalAddressIsOverseas" to "true" (this needs to be a boolean in a string).</li>
+        ///   <li>Set "ResidentialCountry" and "PostalCountry" to the country of the address (e.g. United Kingdom)</li>
+        ///   <li>Now you can enter your address unrestricted in the normal fields.</li>
+        /// </ol>
+        /// <p>Please note that when ResidentialAddressIsOverseas is set to "true", ResidentialCountry <b>must</b> be set and likewise with PostalAddressIsOverseas and PostalCountry.</p>
         /// </remarks>
         public Task<EmployeeUpdateResponseModel> CreateOrUpdateEmployeeAsync(int businessId, UkUnstructuredEmployeeModel model, CreateOrUpdateEmployeeQueryModel request, CancellationToken cancellationToken = default)
         {
@@ -1913,6 +2131,7 @@ namespace KeyPayV2.Uk.Functions
         /// Updates the employee with the specified ID.
         /// Only fields to be updated need be specified. Fields left unspecified or null will not be changed.
         /// To update a field provide the new value, to specifically clear a value use the string "(clear)".
+        /// <p>Bypassing address validation:</p><p>By default we validate addresses when they are entered. If for any reason you want to skip this validation, please follow the steps below.</p><ol><li>Set "ResidentialAddressIsOverseas" and "PostalAddressIsOverseas" to "true" (this needs to be a boolean in a string).</li><li>Set "ResidentialCountry" and "PostalCountry" to the country of the address (e.g. United Kingdom)</li><li>Now you can enter your address unrestricted in the normal fields.</li></ol><p>Please note that when ResidentialAddressIsOverseas is set to "true", ResidentialCountry <b>must</b> be set and likewise with PostalAddressIsOverseas and PostalCountry.</p>
         /// </remarks>
         public EmployeeUpdateResponseModel UpdateEmployee(int businessId, int employeeId, UkUnstructuredEmployeeModel model)
         {
@@ -1926,6 +2145,7 @@ namespace KeyPayV2.Uk.Functions
         /// Updates the employee with the specified ID.
         /// Only fields to be updated need be specified. Fields left unspecified or null will not be changed.
         /// To update a field provide the new value, to specifically clear a value use the string "(clear)".
+        /// <p>Bypassing address validation:</p><p>By default we validate addresses when they are entered. If for any reason you want to skip this validation, please follow the steps below.</p><ol><li>Set "ResidentialAddressIsOverseas" and "PostalAddressIsOverseas" to "true" (this needs to be a boolean in a string).</li><li>Set "ResidentialCountry" and "PostalCountry" to the country of the address (e.g. United Kingdom)</li><li>Now you can enter your address unrestricted in the normal fields.</li></ol><p>Please note that when ResidentialAddressIsOverseas is set to "true", ResidentialCountry <b>must</b> be set and likewise with PostalAddressIsOverseas and PostalCountry.</p>
         /// </remarks>
         public Task<EmployeeUpdateResponseModel> UpdateEmployeeAsync(int businessId, int employeeId, UkUnstructuredEmployeeModel model, CancellationToken cancellationToken = default)
         {

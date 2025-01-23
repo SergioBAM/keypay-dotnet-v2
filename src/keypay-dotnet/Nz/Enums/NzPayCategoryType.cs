@@ -18,6 +18,9 @@ namespace KeyPayV2.Nz.Enums
         TerminationRelevantDailyPay,
         RelevantDailyPay,
         TerminationPublicHolidayPay,
-        GST
+        GST,
+        PublicHolidayWorked,
+        PublicHolidayNotWorked,
+        AlternativeHolidaysCashOut
     }
 }
